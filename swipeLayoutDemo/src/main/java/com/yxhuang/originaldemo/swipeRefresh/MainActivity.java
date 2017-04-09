@@ -1,5 +1,6 @@
 package com.yxhuang.originaldemo.swipeRefresh;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,6 +10,8 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.yxhuang.originaldemo.R;
@@ -51,10 +54,20 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    private DividerItemDecoration mDividerItemDecoration;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mDividerItemDecoration = new DividerItemDecoration(this, LinearLayout.VERTICAL){
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                outRect.set(50,50, 50, 50);
+            }
+        };
 
         initView();
     }
@@ -68,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(manager);
         mRecyclerAdapter = new RecyclerAdapter(this, mList);
         mRecyclerView.setAdapter(mRecyclerAdapter);
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(this, manager.getOrientation()));
+        mRecyclerView.addItemDecoration(mDividerItemDecoration);
         mSwipeLayout.setNestedScrollingEnabled(true);
 //        mListView = (ListView) findViewById(R.id.listView);
 
@@ -95,5 +108,7 @@ public class MainActivity extends AppCompatActivity {
 //        mListAdapter.update(mList);
         mRecyclerAdapter.update(mList);
     }
+
+
 
 }

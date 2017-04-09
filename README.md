@@ -5,4 +5,4 @@
 https://github.com/yxhuangCH/OriginalDemo/tree/master/app
 
 
-2. Retrofit2 + RxJava + MVP https://github.com/yxhuangCH/OriginalDemo/tree/master/retrofitdemo
+2.Retrofit2 + RxJava + MVP https://github.com/yxhuangCH/OriginalDemo/tree/master/retrofitdemo
