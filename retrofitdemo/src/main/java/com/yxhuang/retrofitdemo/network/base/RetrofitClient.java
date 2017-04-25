@@ -163,6 +163,7 @@ public class RetrofitClient {
                 .baseUrl(NetworkUtils.BASE_URL)
                 .client(sOkHttpClient)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(new EmptyJsonLenientConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit.create(classzz);
