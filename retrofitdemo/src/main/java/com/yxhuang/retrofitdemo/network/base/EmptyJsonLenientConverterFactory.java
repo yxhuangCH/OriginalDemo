@@ -26,7 +26,7 @@ public class EmptyJsonLenientConverterFactory extends Converter.Factory {
                     return delegateConverter.convert(value);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    return null;
+                    return "ddd";
                 }
             }
         };

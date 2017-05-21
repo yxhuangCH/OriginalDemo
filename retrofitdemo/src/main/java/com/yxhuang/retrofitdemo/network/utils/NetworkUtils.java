@@ -21,9 +21,9 @@ public class NetworkUtils {
     /**
      *  网络状态成功
      */
-    public static final int STATUS_SUCCESS = 1000;
+    public static final int STATUS_SUCCESS = 1;
 
-    public static final String BASE_URL = "http://192.168.2.201:8084/dsj-store/";
+    public static final String BASE_URL = "http://192.168.17.1:8080/GlobalTripService/";
 
     /**
      * 检查WIFI是否连接

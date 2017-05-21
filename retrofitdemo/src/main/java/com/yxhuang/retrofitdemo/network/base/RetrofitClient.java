@@ -11,7 +11,9 @@ import android.content.Context;
 
 import com.yxhuang.retrofitdemo.app.AppConfig;
 import com.yxhuang.retrofitdemo.app.LokApp;
+import com.yxhuang.retrofitdemo.network.TestService;
 import com.yxhuang.retrofitdemo.network.utils.NetworkUtils;
+import com.yxhuang.retrofitdemo.network.utils.RxUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +30,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Observable;
 
 /**
  *  网络请求
@@ -41,9 +44,12 @@ public class RetrofitClient {
     public static final String PATH_CACHE = PATH_DATA + "/NetCache";
 
     private static final int FILE_CACHE = 1024 * 1024 * 50;
-    private static final int DEFAULT_CONNECT_TIMEOUT = 15;
+    private static final int DEFAULT_CONNECT_TIMEOUT = 100;
     private static final int DEFAULT_READ_TIMEOUT = 20;
     private static final int DEFAULT_WRITE_TIMEOUT = 20;
+
+
+    private static  TestService sTestService;
 
 
     private static OkHttpClient sOkHttpClient;
@@ -90,6 +96,7 @@ public class RetrofitClient {
     }
 
     private static void initService(){
+        sTestService = getService(TestService.class);
 
     }
 
@@ -163,7 +170,7 @@ public class RetrofitClient {
                 .baseUrl(NetworkUtils.BASE_URL)
                 .client(sOkHttpClient)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(new EmptyJsonLenientConverterFactory())
+//                .addConverterFactory(new EmptyJsonLenientConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit.create(classzz);
@@ -191,6 +198,12 @@ public class RetrofitClient {
          //公共参数
         builder.addInterceptor(addQueryParameterInterceptor);
 
+    }
+
+    public Observable<String> getContent(){
+        return sTestService.getContent()
+                .compose(RxUtil.<String>handleResult())
+                .compose(RxUtil.<String>ioToMainThread());
     }
 
 }
