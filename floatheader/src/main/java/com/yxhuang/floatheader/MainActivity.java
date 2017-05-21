@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
     private void updateFloatHeaderView(int position){
         tv_header.setText(mList.get(position).getTime());
     }
-    
+
 
     private void generateDate(){
         String time1 = "20170519";
