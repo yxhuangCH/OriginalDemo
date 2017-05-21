@@ -1,1 +1,1 @@
-include ':swipeLayoutDemo', ':retrofitdemo', ':scanview'
+include ':swipeLayoutDemo', ':retrofitdemo', ':scanview', ':floatheader'

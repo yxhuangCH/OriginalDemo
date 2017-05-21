@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/floatheader" />
             <option value="$PROJECT_DIR$/retrofitdemo" />
             <option value="$PROJECT_DIR$/scanview" />
             <option value="$PROJECT_DIR$/swipeLayoutDemo" />

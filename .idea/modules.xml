@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/OriginalDemo.iml" filepath="$PROJECT_DIR$/OriginalDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/floatheader/floatheader.iml" filepath="$PROJECT_DIR$/floatheader/floatheader.iml" />
       <module fileurl="file://$PROJECT_DIR$/retrofitdemo/retrofitdemo.iml" filepath="$PROJECT_DIR$/retrofitdemo/retrofitdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/scanview/scanview.iml" filepath="$PROJECT_DIR$/scanview/scanview.iml" />
       <module fileurl="file://$PROJECT_DIR$/swipeLayoutDemo/swipeLayoutDemo.iml" filepath="$PROJECT_DIR$/swipeLayoutDemo/swipeLayoutDemo.iml" />
